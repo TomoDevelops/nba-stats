@@ -20,6 +20,14 @@ const router = createRouter({
         {
           path: 'top-scorer',
           component: () => import('../views/TopScorerView.vue')
+        },
+        {
+          path: 'top-rebounds',
+          component: () => import('../views/TopReboundView.vue')
+        },
+        {
+          path: 'top-assists',
+          component: () => import('../views/TopAssistView.vue')
         }
       ]
     }

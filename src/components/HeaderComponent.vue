@@ -28,52 +28,13 @@
                 class="invisible origin-top scale-95 opacity-0 transition-all duration-300 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:opacity-100"
               >
                 <div
-                  class="absolute right-0 mt-2 w-56 origin-top divide-y divide-gray-100 rounded-md border border-gray-200 bg-white shadow-lg outline-none"
+                  class="absolute right-0 mt-2 w-56 origin-top rounded-md border border-gray-200 bg-white shadow-lg outline-none"
                   role="menu"
                 >
-                  <div class="px-4 py-3">
-                    <p class="text-sm leading-5">Signed in as</p>
-                    <p class="truncate text-sm font-medium leading-5 text-gray-900">
-                      tom@example.com
-                    </p>
-                  </div>
-
-                  <div class="py-1">
-                    <a
-                      href="javascript:void(0);"
-                      class="flex w-full justify-between px-4 py-2 text-left text-sm leading-5 text-gray-700 focus-visible:outline-1 focus-visible:outline-blue-500"
-                      role="menuitem"
-                      >Account settings</a
-                    >
-                    <a
-                      href="javascript:void(0);"
-                      class="flex w-full justify-between px-4 py-2 text-left text-sm leading-5 text-gray-700 focus-visible:outline-1 focus-visible:outline-blue-500"
-                      role="menuitem"
-                      >Support</a
-                    >
-                    <span
-                      role="menuitem"
-                      tabindex="-1"
-                      class="flex w-full cursor-not-allowed justify-between px-4 py-2 text-left text-sm leading-5 text-gray-700 opacity-50"
-                      aria-disabled="true"
-                      >New feature (soon)</span
-                    >
-
-                    <a
-                      href="javascript:void(0);"
-                      class="flex w-full justify-between px-4 py-2 text-left text-sm leading-5 text-gray-700 focus-visible:outline-1 focus-visible:outline-blue-500"
-                      role="menuitem"
-                      >License</a
-                    >
-                  </div>
-
-                  <div class="py-1">
-                    <a
-                      href="javascript:void(0);"
-                      class="flex w-full justify-between px-4 py-2 text-left text-sm leading-5 text-gray-700 focus-visible:outline-1 focus-visible:outline-blue-500"
-                      role="menuitem"
-                      >Sign out</a
-                    >
+                  <div class="py-2 px-3 flex flex-col gap-4">
+                    <router-link to="/charts/top-scorer">Top Scorer</router-link>
+                    <router-link to="/charts/top-rebounds">Top Rebounds</router-link>
+                    <router-link to="/charts/top-assists">Top Assists</router-link>
                   </div>
                 </div>
               </div>
