@@ -12,8 +12,6 @@ export default {
   data() {
     return {
       playerDataByScore: [],
-      playerName: [],
-      playerPoints: [],
       loading: false,
       year: new Date().getFullYear()
     }
@@ -26,8 +24,7 @@ export default {
           `https://nba-stats-db.herokuapp.com/api/playerdata/topscorers/total/season/${this.year}/`
         )
         const data = await res.json()
-        this.playerDataByScore = data.results.slice(0, 20)
-        this.getPlayerNamesAndPoints()
+        this.getPlayerNamesAndPoints(data)
         this.initChart()
       } catch (err) {
         console.error(err.message)
@@ -35,10 +32,12 @@ export default {
         this.loading = false
       }
     },
-    getPlayerNamesAndPoints() {
-      this.playerDataByScore.map((player) => {
-        this.playerName.push(player.player_name)
-        this.playerPoints.push(player.PTS)
+    getPlayerNamesAndPoints(data) {
+      data.results.slice(0, 20).map((player) => {
+        let newPlayer = {}
+        newPlayer.name = player.player_name
+        newPlayer.points = player.PTS
+        this.playerDataByScore.push(newPlayer)
       })
     },
     initChart() {
@@ -46,11 +45,11 @@ export default {
       new Chart(canvas, {
         type: 'bar',
         data: {
-          labels: this.playerName,
+          labels: this.playerDataByScore.map((player) => player.name),
           datasets: [
             {
-              label: `Top Scorers of ${this.year}`,
-              data: this.playerPoints,
+              label: "Player's total scores",
+              data: this.playerDataByScore.map((player) => player.points),
               borderWidth: 1
             }
           ]
